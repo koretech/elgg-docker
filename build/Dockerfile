@@ -45,6 +45,7 @@ ENV ELGG_DB_HOST=${ELGG_DB_HOST:-"mysql"}
 ENV ELGG_DB_NAME=${ELGG_DB_NAME:-"elgg"}
 ENV ELGG_DB_PORT=${MYSQL_PORT:-"3306"}
 ENV ELGG_DB_PREFIX=${ELGG_DB_PREFIX:-"elgg_"}
+ENV ELGG_MAIL_RELAY=${ELGG_MAIL_RELAY:-"localhost"}
 
 # Elgg admin account
 ENV ELGG_DISPLAY_NAME=${ELGG_DISPLAY_NAME:-"Admin"}
@@ -57,6 +58,8 @@ ENV ELGG_DATA_ROOT=${ELGG_DATA_ROOT:-"/data/"}
 ENV ELGG_WWW_ROOT=${ELGG_WWW_ROOT:-"http://localhost:8000"}
 ENV ELGG_SITE_ACCESS=${ELGG_SITE_ACCESS:-"2"}
 ENV ELGG_PATH=${ELGG_PATH:-"/var/www/html/"}
+
+RUN apt-get install -y ssmtp    
 
 COPY elgg-install.sh /elgg
 RUN chmod +x /elgg/elgg-install.sh

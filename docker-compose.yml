@@ -2,7 +2,7 @@ version: "2"
 services:
   main:
     image: koretech/elgg:latest
-#    restart: always
+    restart: always
     ports:
       - "8000:80"
     volumes:
@@ -15,7 +15,8 @@ services:
       ELGG_USERNAME: admin
       ELGG_PASSWORD: test123
       ELGG_EMAIL: it@makingyourmilescount.com
-      ELGG_WWW_ROOT: http://localhost:8000      
+      ELGG_WWW_ROOT: http://localhost:8000
+      ELGG_MAIL_RELAY: 192.168.1.2
   mysql:
     image: mysql:5.7
     restart: always

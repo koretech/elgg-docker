@@ -30,10 +30,10 @@ if [ ! -f "${ELGG_PATH}vendor/autoload.php" ]; then
 	composer install --prefer-source
 fi
 
-if [ ! -d "$ELGG_DATA_ROOT" ]; then
-  mkdir $ELGG_DATA_ROOT
-  chmod -R 770 "${ELGG_DATA_ROOT}" 
-  chown -R www-data:www-data "${ELGG_DATA_ROOT}"
-fi 
+mkdir -p $ELGG_DATA_ROOT
+chmod -R 770 "${ELGG_DATA_ROOT}" 
+chown -R www-data:www-data "${ELGG_DATA_ROOT}"
+
+sed -i "s/^mailhub=.*$/mailhub=${ELGG_MAIL_RELAY}/g" /etc/ssmtp/ssmtp.conf
 
 php	/elgg/elgg-install.php
