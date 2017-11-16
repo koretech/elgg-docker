@@ -12,8 +12,8 @@ $params = array(
 	// database parameters
 	'dbhost' => getenv('ELGG_DB_HOST'),
 	'dbprefix' => getenv('ELGG_DB_PREFIX'),
-	'dbuser' => getenv('ELGG_DB_USER'),
-	'dbpassword' => getenv('ELGG_DB_PASS'),
+	'dbuser' => getenv('MYSQL_USER'),
+	'dbpassword' => getenv('MYSQL_PASS'),
 	'dbname' => getenv('ELGG_DB_NAME'),
 	// site settings
 	'sitename' => getenv('ELGG_SITE_NAME'),
