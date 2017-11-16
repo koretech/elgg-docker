@@ -1,0 +1,16 @@
+{
+  "name": "elgg",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "docker build -t koretech/elgg ./build",
+    "start": "docker-compose -p elgg up -d",
+    "stop": "docker-compose -p elgg stop",
+    "start:log": "docker-compose -p elgg up",
+    "down": "docker-compose -p elgg down",
+    "elgg-install": "docker exec -it elgg_main_1 /elgg/elgg-install.sh",
+    "bash": "docker exec -it elgg_main_1 /bin/bash",
+    "logs": "docker logs -f elgg_main_1",
+    "docker:rmi:untagged": "docker images -q --filter \"dangling=true\" | xargs docker rmi"
+  }
+}

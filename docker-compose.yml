@@ -1,0 +1,26 @@
+version: "2"
+services:
+  main:
+    image: koretech/elgg:latest
+#    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - ./data/elgg:/data
+    links:
+      - mysql
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASS: mypasswd
+      ELGG_USERNAME: admin
+      ELGG_PASSWORD: test123
+      ELGG_EMAIL: it@makingyourmilescount.com
+      ELGG_WWW_ROOT: http://localhost:8000      
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mypasswd
+      MYSQL_DATABASE: elgg
+    volumes:
+      - ./data/mysql:/var/lib/mysql
